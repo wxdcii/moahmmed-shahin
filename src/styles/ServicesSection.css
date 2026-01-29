@@ -1,0 +1,284 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: consolas, 'Inter', sans-serif; */
+}
+
+body {
+  background: #1d061a;
+}
+
+/* Section styles */
+.services-section {
+  min-height: 100vh;
+  background: #1d061a;
+  padding: 60px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-header {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.section-tag {
+  background: #e7f1ff;
+  padding: 6px 16px;
+  border-radius: 999px;
+  color: #0a63ff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  margin-top: 12px;
+  color: #fff;
+  font-weight: 800;
+}
+
+/* Card grid */
+.services-selection-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 32px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card styles */
+.service-selection-card {
+  position: relative;
+  width: 320px;
+  height: 400px;
+  margin: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border-radius: 8px;
+  transition: 0.5s;
+  overflow: visible;
+  z-index: 1;
+}
+
+.service-selection-card::before,
+.service-selection-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  z-index: 0;
+}
+
+.service-selection-card::after {
+  filter: blur(30px);
+}
+
+.services-selection-grid .service-selection-card::before,
+.services-selection-grid .service-selection-card::after {
+  background: linear-gradient(315deg, #ffbc00, #ff0058);
+}
+.services-selection-grid .service-selection-card:nth-child(2)::before,
+.services-selection-grid .service-selection-card:nth-child(2)::after {
+  background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+.services-selection-grid .service-selection-card:nth-child(3)::before,
+.services-selection-grid .service-selection-card:nth-child(3)::after {
+  background: linear-gradient(315deg, #4dff03, #00d0ff);
+}
+.services-selection-grid .service-selection-card:nth-child(4)::before,
+.services-selection-grid .service-selection-card:nth-child(4)::after {
+  background: linear-gradient(315deg, #ff00cc, #3333ff);
+}
+.services-selection-grid .service-selection-card:nth-child(5)::before,
+.services-selection-grid .service-selection-card:nth-child(5)::after {
+  background: linear-gradient(315deg, #ff8800, #00ff88);
+}
+/* Add more nth-child if you have more cards with different colors */
+
+.service-selection-card:hover::before,
+.service-selection-card:hover::after {
+  transform: skewX(0deg);
+  left: 20px;
+  width: calc(100% - 90px);
+}
+
+/* Glassmorphism overlay animation */
+.service-selection-card span {
+  display: block;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.service-selection-card span::before,
+.service-selection-card span::after {
+  content: '';
+  position: absolute;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.1s;
+  animation: animate 2s ease-in-out infinite;
+}
+
+.service-selection-card span::before {
+  top: 0; left: 0; width: 0; height: 0;
+}
+
+.service-selection-card:hover span::before {
+  top: -50px; left: 50px; width: 100px; height: 100px; opacity: 1;
+}
+
+.service-selection-card span::after {
+  bottom: 0; right: 0; width: 100%; height: 100%;
+  transition: 0.5s;
+  animation-delay: -1s;
+}
+
+.service-selection-card:hover span::after {
+  bottom: -50px; right: 50px; width: 100px; height: 100px; opacity: 1;
+}
+
+@keyframes animate {
+  0%, 100% { transform: translateY(10px);}
+  50% { transform: translate(-10px);}
+}
+
+/* Card content */
+.service-selection-card .content {
+  position: relative;
+  left: 0;
+  padding: 20px 40px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  z-index: 3;
+  color: #fff;
+  transition: 0.5s;
+  width: 100%;
+  text-align: center;
+}
+
+.service-selection-card:hover .content {
+  left: -25px;
+  padding: 60px 40px;
+}
+
+.service-selection-card .content h3 {
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.service-selection-card .content p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+
+.service-selection-card .content a,
+.read-more {
+  display: inline-block;
+  font-size: 1.1em;
+  color: #111;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 5px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.service-selection-card .content a:hover,
+.read-more:hover {
+  background: #ffcf4d;
+  border: 1px solid rgba(255, 0, 88, 0.4);
+  box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
+  color: #ff0058;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .services-selection-grid {
+    gap: 18px;
+  }
+  .service-selection-card {
+    width: 90vw;
+    max-width: 400px;
+    height: 380px;
+    margin: 30px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-section {
+    padding: 30px 0 20px 0;
+  }
+  .services-selection-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .service-selection-card {
+    width: 98vw;
+    max-width: 340px;
+    min-width: 220px;
+    height: 340px;
+    margin: 18px 0;
+  }
+  .service-selection-card .content {
+    padding: 16px 12px;
+  }
+  .service-selection-card:hover .content {
+    left: 0;
+    padding: 32px 12px;
+  }
+  .service-selection-card .content h3 {
+    font-size: 1.3em;
+  }
+  .service-selection-card .content p {
+    font-size: 1em;
+  }
+  .service-selection-card .content a {
+    font-size: 1em;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .service-selection-card {
+    width: 98vw;
+    min-width: 160px;
+    max-width: 98vw;
+    height: 260px;
+    margin: 12px 0;
+  }
+  .service-selection-card .content {
+    padding: 10px 6px;
+  }
+  .service-selection-card .content h3 {
+    font-size: 1em;
+  }
+}

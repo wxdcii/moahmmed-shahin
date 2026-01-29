@@ -1,0 +1,259 @@
+
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  padding-top: 120px; 
+}
+
+.header-wrapper {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  background: transparent;
+}
+
+
+.contact-info span {
+  margin-right: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  margin-right: 10rem;
+}
+
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 28px 60px;
+  background: white;
+  transition: box-shadow 0.6s;
+  position: relative;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  width: 0;
+  height: 0;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  color: #1F2937;
+}
+
+.logo-accent {
+  color: #B08D57;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: #4B5563;
+  font-weight: 600;
+  transition: color 0.3s;
+  font-size: 1.1rem;
+}
+
+.navigation a:hover {
+  color: #1F2937;
+}
+
+.cta-button {
+  margin-right: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.cta-button a {
+  background: #4E8370;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+.cta-button a:hover {
+  background: #3b6958;
+}
+
+.cta-button.hidden {
+  display: none !important;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #2563eb;
+  cursor: pointer;
+  margin-left: 18px;
+  z-index: 1200;
+  transition: color 0.2s;
+}
+
+.menu-toggle.open {
+  color: #4E8370;
+}
+
+@media (max-width: 1024px) {
+  .main-header {
+    padding: 34px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    right: -100vw;
+    width: 70vw;
+    max-width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 16px rgba(40, 120, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 80px 32px 32px 32px;
+    gap: 0;
+    z-index: 1100;
+  }
+
+  .navigation.open {
+    right: 0;
+    animation: slideInMenu 0.35s ease-in-out;
+  }
+
+  @keyframes slideInMenu {
+    from { right: -100vw; }
+    to { right: 0; }
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .navigation a {
+    font-size: 1.15rem;
+    padding: 8px 0;
+    width: 100%;
+    display: block;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .navigation a:hover {
+    background: #f0f7ff;
+    color: #2563eb;
+  }
+
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+    margin: 18px 0 0 0;
+    z-index: 1201;
+  }
+
+  .cta-button a {
+    width: 100%;
+    text-align: center;
+    font-size: 1.08rem;
+    padding: 14px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 24px;
+    top: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-header {
+    /* padding: 16px 4vw; */
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100vw;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .navigation ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    justify-content: center;
+    margin: 10px 0 0 0;
+  }
+
+  .cta-button a {
+    width: 100%;
+    text-align: center;
+    font-size: 0.98rem;
+    padding: 12px 0;
+  }
+
+  .navigation {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 80px 14vw 32px 14vw;
+  }
+
+  .menu-toggle {
+    right: 18px;
+    top: 16px;
+  }
+}

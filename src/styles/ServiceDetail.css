@@ -1,0 +1,75 @@
+.service-detail-page {
+  max-width: 600px;
+  margin: 48px auto 64px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(40, 120, 255, 0.08);
+  padding: 40px 28px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  animation: fadeInDetail 0.7s cubic-bezier(.77,0,.18,1);
+}
+
+@keyframes fadeInDetail {
+  from { opacity: 0; transform: translateY(40px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+}
+
+.description {
+  font-size: 1.15rem;
+  color: #334155;
+  margin-bottom: 28px;
+  line-height: 1.7;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.benefits-list li {
+  background: #f1f6fd;
+  color: #2563eb;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(40, 120, 255, 0.04);
+  transition: background 0.2s;
+}
+
+.benefits-list li:hover {
+  background: #e7f1ff;
+}
+
+@media (max-width: 600px) {
+  .service-detail-page {
+    padding: 22px 8px 18px 8px;
+    margin: 24px 4px 32px 4px;
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .benefits-list li {
+    font-size: 0.98rem;
+    padding: 10px;
+  }
+}
